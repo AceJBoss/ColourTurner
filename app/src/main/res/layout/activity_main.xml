@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/screen"
+    android:background="#000000">
+
+        <LinearLayout
+        android:layout_marginTop="280dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/txtInterval"
+                android:hint="Enter Interval of Display"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:inputType="number">
+
+            </EditText>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnColorSelection"
+                style="@style/my_button"
+                android:layout_marginTop="8dp"
+                android:text="Select your Preferred Color" />
+
+
+
+        </LinearLayout>
+</LinearLayout>
