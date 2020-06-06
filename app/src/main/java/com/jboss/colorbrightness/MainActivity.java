@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                     alertDialogBuilder.setTitle("Error Update!");
                     alertDialogBuilder.setIcon(R.drawable.info);
                     // Setting Alert Dialog Message
-                    alertDialogBuilder.setMessage("Hey, kindly select atleast one color from pool of colors");
+                    alertDialogBuilder.setMessage("Hey, you have exceeded the limit of color you can choose");
                     alertDialogBuilder.setCancelable(false);
 
                     alertDialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
