@@ -8,6 +8,7 @@
     android:id="@+id/screen"
     android:background="#000000">
 
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -15,8 +16,8 @@
 
             <ImageView
                 android:id="@+id/add_btn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="12dp"
                 android:scaleType="centerCrop"
@@ -36,7 +37,7 @@
             android:layout_margin="@dimen/small"
             android:layout_width="match_parent"
             android:id="@+id/cl1"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             app:cardBackgroundColor="#CCC"
             app:cardCornerRadius="5dp"
             xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -48,8 +49,8 @@
 
                 <ImageView
                     android:id="@+id/c1"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:scaleType="centerCrop"
                     android:src="@drawable/error" />
@@ -61,7 +62,7 @@
             android:layout_margin="@dimen/small"
             android:layout_width="match_parent"
             android:id="@+id/cl2"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             app:cardBackgroundColor="#CCC"
             app:cardCornerRadius="5dp"
             android:layout_marginTop="8dp"
@@ -74,8 +75,8 @@
 
                 <ImageView
                     android:id="@+id/c2"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:scaleType="centerCrop"
                     android:src="@drawable/error" />
@@ -86,7 +87,7 @@
             android:layout_margin="@dimen/small"
             android:layout_width="match_parent"
             android:id="@+id/cl3"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             app:cardBackgroundColor="#CCC"
             app:cardCornerRadius="5dp"
             android:layout_marginTop="8dp"
@@ -99,8 +100,8 @@
 
                 <ImageView
                     android:id="@+id/c3"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:scaleType="centerCrop"
                     android:src="@drawable/error" />
@@ -111,7 +112,7 @@
             android:layout_margin="@dimen/small"
             android:layout_width="match_parent"
             android:id="@+id/cl4"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             app:cardBackgroundColor="#CCC"
             android:layout_marginTop="8dp"
             app:cardCornerRadius="5dp"
@@ -124,8 +125,8 @@
 
                 <ImageView
                     android:id="@+id/c4"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:scaleType="centerCrop"
                     android:src="@drawable/error" />
@@ -136,7 +137,7 @@
             android:layout_margin="@dimen/small"
             android:layout_width="match_parent"
             android:id="@+id/cl5"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             app:cardBackgroundColor="#CCC"
             android:layout_marginTop="8dp"
             app:cardCornerRadius="5dp"
@@ -149,8 +150,8 @@
 
                 <ImageView
                     android:id="@+id/c5"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:scaleType="centerCrop"
                     android:src="@drawable/error" />
@@ -158,32 +159,40 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
+
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
+        android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:id="@+id/type"
+        android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/txtInterval"
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_above="@+id/btnColorSelection"
-            android:hint="Enter Interval of Display"
-            android:inputType="number"
-            android:textSize="18dp">
+            android:layout_height="40dp"
+            android:id="@+id/steady"
+            android:background="@color/colorGold"
+            android:text="Steady" />
 
-        </EditText>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/blink"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorPurple"
+            android:text="Blink" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnColorSelection"
+            android:layout_marginTop="40dp"
             style="@style/my_button"
-            android:layout_marginTop="15dp"
             android:layout_alignParentBottom="true"
             android:text="Display" />
-    </RelativeLayout>
+
+
+    </LinearLayout>
 
 
 
