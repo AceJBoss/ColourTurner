@@ -49,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
     private String finalOperation = "";
     private ArrayList<Integer> colors = new ArrayList<>();
 
+    private LinearLayout screen;
+    private MaterialButton btn;
+    private Button steady, blink;
+    private ImageView im, err1, err2, err3, err4, err5;
+    private CardView card1, card2, card3, card4, card5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,29 +65,35 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         // Get the widgets reference from XML layout
-        final LinearLayout screen = (LinearLayout) findViewById(R.id.screen);
-        final MaterialButton btn = (MaterialButton) findViewById(R.id.btnColorSelection);
-        final Button steady = (Button) findViewById(R.id.steady);
-        final Button blink = (Button) findViewById(R.id.blink);
-        final ImageView im = (ImageView)findViewById(R.id.add_btn);
-        final ImageView err1 = (ImageView)findViewById(R.id.c1);
-        final ImageView err2 = (ImageView)findViewById(R.id.c2);
-        final ImageView err3 = (ImageView)findViewById(R.id.c3);
-        final ImageView err4 = (ImageView)findViewById(R.id.c4);
-        final ImageView err5 = (ImageView)findViewById(R.id.c5);
+        screen = (LinearLayout) findViewById(R.id.screen);
+        btn = (MaterialButton) findViewById(R.id.btnColorSelection);
+        steady = (Button) findViewById(R.id.steady);
+        blink = (Button) findViewById(R.id.blink);
+        im = (ImageView) findViewById(R.id.add_btn);
+        err1 = (ImageView) findViewById(R.id.c1);
+        err2 = (ImageView) findViewById(R.id.c2);
+        err3 = (ImageView) findViewById(R.id.c3);
+        err4 = (ImageView) findViewById(R.id.c4);
+        err5 = (ImageView) findViewById(R.id.c5);
 
-        final CardView card1 = (CardView)findViewById(R.id.cl1);
-        final CardView card2 = (CardView)findViewById(R.id.cl2);
-        final CardView card3 = (CardView)findViewById(R.id.cl3);
-        final CardView card4 = (CardView)findViewById(R.id.cl4);
-        final CardView card5 = (CardView)findViewById(R.id.cl5);
+        card1 = (CardView) findViewById(R.id.cl1);
+        card2 = (CardView) findViewById(R.id.cl2);
+        card3 = (CardView) findViewById(R.id.cl3);
+        card4 = (CardView) findViewById(R.id.cl4);
+        card5 = (CardView) findViewById(R.id.cl5);
 
-        card1.setVisibility(View.INVISIBLE); err1.setVisibility(View.INVISIBLE);
-        card2.setVisibility(View.INVISIBLE); err2.setVisibility(View.INVISIBLE);
-        card3.setVisibility(View.INVISIBLE); err3.setVisibility(View.INVISIBLE);
-        card4.setVisibility(View.INVISIBLE); err4.setVisibility(View.INVISIBLE);
-        card5.setVisibility(View.INVISIBLE); err5.setVisibility(View.INVISIBLE);
-        btn.setVisibility(View.INVISIBLE); im.setVisibility(View.INVISIBLE);
+        card1.setVisibility(View.INVISIBLE);
+        err1.setVisibility(View.INVISIBLE);
+        card2.setVisibility(View.INVISIBLE);
+        err2.setVisibility(View.INVISIBLE);
+        card3.setVisibility(View.INVISIBLE);
+        err3.setVisibility(View.INVISIBLE);
+        card4.setVisibility(View.INVISIBLE);
+        err4.setVisibility(View.INVISIBLE);
+        card5.setVisibility(View.INVISIBLE);
+        err5.setVisibility(View.INVISIBLE);
+        btn.setVisibility(View.INVISIBLE);
+        im.setVisibility(View.INVISIBLE);
 
         im.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 counter++;
                 steady.setVisibility(View.INVISIBLE);
                 blink.setVisibility(View.INVISIBLE);
-                if(finalOperation.equals("steady")){
+                if (finalOperation.equals("steady")) {
                     if (counter < 6) {
                         final ColorPicker colorPicker = new ColorPicker(MainActivity.this);
                         ArrayList<String> cols = new ArrayList<>();
@@ -172,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                                 .disableDefaultButtons(true)
                                 .setColumns(5)
                                 .show();
-                    }else{
+                    } else {
 
                         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
                         // Setting Alert Dialog Title
@@ -193,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 }
-                if(finalOperation.equals("blink")){
+                if (finalOperation.equals("blink")) {
                     if (counter < 2) {
                         final ColorPicker colorPicker = new ColorPicker(MainActivity.this);
                         ArrayList<String> cols = new ArrayList<>();
@@ -276,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
                                 .disableDefaultButtons(true)
                                 .setColumns(5)
                                 .show();
-                    }else{
+                    } else {
 
                         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
                         // Setting Alert Dialog Title
@@ -306,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
                 card1.setVisibility(View.INVISIBLE);
                 colors.remove(0);
             }
-            });
+        });
         err2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -361,7 +373,7 @@ public class MainActivity extends AppCompatActivity {
                 alertDialog.show();
                 //steady.setEnabled(false);
             }
-            });
+        });
 
         blink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -408,14 +420,14 @@ public class MainActivity extends AppCompatActivity {
                 card5.setVisibility(View.INVISIBLE);
                 err5.setVisibility(View.INVISIBLE);
 
-                Log.e("Total Size", colors.size()+"");
+                Log.e("Total Size", colors.size() + "");
 
-                if(finalOperation.equals("steady")){
+                if (finalOperation.equals("steady")) {
                     new Thread(new Runnable() {
                         public void run() {
                             while (stateCount < colors.size()) {
                                 try {
-                                    Log.e("Color @ " + stateCount, colors.get(stateCount)+"");
+                                    Log.e("Color @ " + stateCount, colors.get(stateCount) + "");
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
@@ -427,13 +439,13 @@ public class MainActivity extends AppCompatActivity {
                                     Log.e("Latest", e + "");
                                 }
                                 stateCount = stateCount + 1;
-                                if(stateCount == colors.size()){
+                                if (stateCount == colors.size()) {
                                     stateCount = 0;
                                 }
                             }
                         }
                     }).start();
-                }else if(finalOperation.equals("blink")){
+                } else if (finalOperation.equals("blink")) {
 
                     btn.setVisibility(View.INVISIBLE);
                     steady.setVisibility(View.INVISIBLE);
@@ -482,8 +494,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void onBackPressed() {
         finish();
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        if (steady.getVisibility() == View.VISIBLE && blink.getVisibility() == View.VISIBLE) {
+            Intent startMain = new Intent(Intent.ACTION_MAIN);
+            startMain.addCategory(Intent.CATEGORY_HOME);
+            startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(startMain);
+        }
+        if (steady.getVisibility() == View.INVISIBLE && blink.getVisibility() == View.INVISIBLE) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
     }
 }
